@@ -1,3 +1,5 @@
+#!/bin/bash
+
 # SETUP NGINX SERVER BLOCK
 
 echo "We need a domain name please"

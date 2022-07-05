@@ -5,6 +5,9 @@
 echo "We need a domain name please"
 read domain_name
 
+echo "We need a PHP version"
+read php_version
+
 echo "Creating nginx server block"
 
 uri='$uri'
@@ -28,7 +31,7 @@ server {
     location = /robots.txt  { access_log off; log_not_found off; }
     error_page 404 /index.php;
     location ~ \.php$ {
-        fastcgi_pass unix:/var/run/php/php7.4-fpm.sock;
+        fastcgi_pass unix:/var/run/php/php$php_version-fpm.sock;
         fastcgi_index index.php;
         fastcgi_param SCRIPT_FILENAME $realpath_root$fastcgi_script_name;
         include fastcgi_params;
